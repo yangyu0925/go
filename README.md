@@ -22,3 +22,15 @@
     * 类型转换是强制的
     * var a, b int = 3, 4
     * var c int = int(math.Sqrt(float64(a * a + b * b)))
+    
+## 常量的定义
+* const filename = "abc.txt"
+* const 数值可作为各种类型使用
+* const a, b = 3, 4
+* var c int = int(math.Sqrt(a * a + b * b))
+
+## 变量定义要点回顾
+* 变量类型写在变量名之后
+* 编译器可推测变量类型
+* 没有char，只有rune
+* 原生支持复数类型
