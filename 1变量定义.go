@@ -45,7 +45,7 @@ func main()  {
 	var (
 		a = 1
 		b = 2
-		name = "yangyu"
+		name = "yangyu branch"
 	)
 	fmt.Println(a, b, name)
 }
