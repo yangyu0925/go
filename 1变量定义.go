@@ -40,21 +40,12 @@ import "fmt"
 //	fmt.Println(a, b, i, s1, s2)
 //}
 
-var (
-	name = "yangyu"
-	age = "33"
-)
-
-func variable()  {
-	var a, b, c, d = 1, 2, true, "yang"
-	fmt.Println(a, b, c, d)
-}
-
-func variableShrt()  {
-	a, b, c, d := 1, 2, 3, true
-	fmt.Println(a, b, c, d)
-}
 
 func main()  {
-	variableShrt()
+	var (
+		a = 1
+		b = 2
+		name = "yangyu"
+	)
+	fmt.Println(a, b, name)
 }
