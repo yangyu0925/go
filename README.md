@@ -34,3 +34,14 @@
 * 编译器可推测变量类型
 * 没有char，只有rune
 * 原生支持复数类型
+
+## 条件判断语句
+```
+if contents, err := ioutil.ReadFile(filename); err != nil {
+    fmt.Println(err)
+} else {
+    fmt.Printf("%s \n", contents)
+}
+```
+* if的条件里可以赋值
+* if的条件里赋值的变量作用域就在这个if语句里
