@@ -81,3 +81,44 @@ if contents, err := ioutil.ReadFile(filename); err != nil {
 * if条件里也可以定义变量
 * 没有while
 * switch不需要break，也可以直接switch多个条件
+
+## 函数
+```
+    func eval(a, b int, op string) int
+    
+    //函数可返回多个值
+    func div(a, b int) (int, int) {
+        return a / b, a % b
+    }
+    
+    //函数返回多个值时可以起名字
+    //仅用于非常简单的函数
+    //对于调用者而言没有区别
+    func div(a, b int) (q, r int) {
+        q = a / b
+        r = a % b
+        return
+    }
+    
+    //函数作为参数
+    func apple(op func(int, int) int, a, b int) int {
+        fmt.Printf("Calling %s whth %d %d",
+            runtime.FuncForPC(reflect.ValueOf(op).Pointer()).Name(),
+        a, b)
+        return op(a, b)
+    }
+    
+    //可变参数列表
+    func sum(numbers ...int) int{
+        s := 0
+        for i := range numbers {
+            s += numbers[i]
+        }
+        return s
+    }
+```
+## 函数语法要点回顾
+* 返回值类型写在最后面
+* 可返回多个值
+* 函数作为参数
+* 没有默认参数、可选参数
