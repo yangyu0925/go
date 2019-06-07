@@ -122,3 +122,17 @@ if contents, err := ioutil.ReadFile(filename); err != nil {
 * 可返回多个值
 * 函数作为参数
 * 没有默认参数、可选参数
+
+## 指针
+```
+    //指针不能运算
+    var a int = 2
+    var pa *int = &a
+    *pa = 3
+    fmt.Println(a)
+    
+    //参数传递
+    func swap(a, b *int) {
+        *b, *a = *a, *b
+    }
+```
