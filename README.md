@@ -177,3 +177,17 @@ if contents, err := ioutil.ReadFile(filename); err != nil {
     * [10]int和[20]int是不同类型
     * 调用func f(arr [10]int)会拷贝数组
     * 在go语言中一般不直接使用数组
+    
+## Slice(切片)
+```
+    arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7}
+    //s的值为[2 3 4 5]
+    s := arr[2:6]
+    
+    //s1的值为[2 3 4 5], s2的值为[5 6]
+    //slice可以向后拓展，不可以向前拓展
+    //s[i]不可以超越len(s),向后拓展不可以超越底层数组cap(s)
+    arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7}
+    s1 := arr[2:6]
+    s2 := s1[3:5]
+```
