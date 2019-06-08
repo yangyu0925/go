@@ -136,3 +136,44 @@ if contents, err := ioutil.ReadFile(filename); err != nil {
         *b, *a = *a, *b
     }
 ```
+
+##数组
+```
+    //数量写在类型前
+    var arr1 [5]int
+    arr2 := [3]int{1, 3, 5}
+    arr3 := [...]int{2, 4, 6, 8, 10}
+    var grid [4][5]int
+    
+    for i := 0; i < len(arr3); i++ {
+        fmt.Println(arr3[i])
+    }
+    
+    for i, v := range arr3{
+        fmt.Println(i, v)
+    }
+    
+    maxi := -1
+    maxValue := -1
+    for i, v := range numbers {
+        if v > maxValue {
+            maxi, maxValue = i, v
+        }
+    }
+    
+    //可通过_省略变量
+    //不仅range，任何地方都可以通过_省略变量
+    //如果只要i，可写成for i := range numbers
+    sum := 0
+    for _, v := range numbers {
+        sum += v
+    }
+```
+* 为什么要用range
+    * 意义明确，美观
+    * C++没有类似能力
+    * Java/Python:只能for each value，不能同时获取i, v
+* 数组是值类型
+    * [10]int和[20]int是不同类型
+    * 调用func f(arr [10]int)会拷贝数组
+    * 在go语言中一般不直接使用数组
