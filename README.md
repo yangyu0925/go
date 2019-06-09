@@ -350,3 +350,14 @@ if contents, err := ioutil.ReadFile(filename); err != nil {
     * 一致性：如果指针接收者，最好都是指针接收者
     * 值接收者是go语言特有
     * 值/指针接收者均可接收值/指针
+    
+* 封装
+    * 名字一般使用CamelCase
+    * 首字母大写: public
+    * 首字母小写: private
+    
+* 包
+    * 每个目录一个包
+    * main包包含可执行函数
+    * 为结构定义的方法必须放在同一个包内
+    * 可以是不同的文件
