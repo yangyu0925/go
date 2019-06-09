@@ -245,3 +245,55 @@ if contents, err := ioutil.ReadFile(filename); err != nil {
     * 添加元素时如果超越cap，系统会重新分配更大的底层数组
     * 由于值传递的关系，必须接受append的返回值
     * s = append(s, val)  
+    
+## map
+```
+    m := map[string]string {
+        "name": "ccmouse",
+        "course": "golang",
+        "site": "imooc",
+        "quality": "notbad",
+    }
+    
+    //m2 == empty map
+    m2 := make(map[string]int)
+
+    //m3 == nil
+    var m3 map[string]int
+    
+	fmt.Println("Traversing map")
+	for k, v := range m{
+		fmt.Println(k,":",v)
+	}
+
+	fmt.Println("Getting value")
+	courseName, ok := m["course"]
+	fmt.Println(courseName, ok)
+	if coursName, ok := m["cours"]; ok{
+		fmt.Println(coursName)
+	} else {
+		fmt.Println("key does not exist")
+	}
+
+	fmt.Println("Deleting values")
+	name, ok := m["name"]
+	delete(m, "name")
+	fmt.Println(name, ok)
+
+	name, ok = m["name"]
+	fmt.Println(name, ok)
+```
+* Map的操作
+    * 创建：make(map[string]int)
+    * 获取元素：m[key]
+    * key不存在时，获取value类型的初始值
+    * 用value，ok := m[key]来判断是否存在key
+    * 用delete删除一个key
+* map的遍历
+    * 使用range遍历key，或者遍历key，value对
+    * 不保证遍历顺序，如需要顺序，需手动对key排序
+    * 使用len获取元素个数
+* map的key
+    * map使用哈希表，必须可以比较相等
+    * 除了slice，map，function的内建类型都可以作为key
+    * Struct类型不包含上述字段，也可作为key
