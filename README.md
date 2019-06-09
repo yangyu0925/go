@@ -297,3 +297,13 @@ if contents, err := ioutil.ReadFile(filename); err != nil {
     * map使用哈希表，必须可以比较相等
     * 除了slice，map，function的内建类型都可以作为key
     * Struct类型不包含上述字段，也可作为key
+* rune相等与go的char
+    * 使用range遍历pos, rune对
+    * 使用utf8.RuneCountInString获得字符数量
+    * 使用len获得字节长度
+    * 使用[]byte获得字节
+* 其他字符串操作
+    * fields, Split, Join
+    * Contains, Index
+    * ToLower, ToUpper
+    * Trim, TrimRight, TrimLeft
