@@ -307,3 +307,46 @@ if contents, err := ioutil.ReadFile(filename); err != nil {
     * Contains, Index
     * ToLower, ToUpper
     * Trim, TrimRight, TrimLeft
+    
+## 面向对象
+* go语言仅支持封装，不支持继承和多态
+* go语言没有class，只有struct
+```
+    type tree struct {
+        Left, Right *TreeNode
+        Value int
+    }
+    
+    //结构的创建
+    var root tree
+    
+    root = tree{value: 3}
+    root.left = &tree{}
+    root.right = &tree{5, nil, nil}
+    root.right.left = new(tree)
+    
+    func createTree(value int) *tree {
+    	return &tree{value: value}
+    }
+    //使用自定义的工厂函数
+    //注意返回了局部变量的地址！
+	root.left.right = createTree(2)
+
+    //为结构定义方法
+    //显示定义和命名方法接收者
+    func (node tree) print() {
+        fmt.Print(node.Value)
+    }
+    
+    //只有使用指针才可以改变结构内容
+    //nil指针也可以调用方法
+    func (node *tree) setValue(value int) {
+        node.Value = value
+    }
+```
+* 值接收者vs指针接收者
+    * 要改变内容必须使用指针接收者
+    * 结构过大也考虑使用指针接收者
+    * 一致性：如果指针接收者，最好都是指针接收者
+    * 值接收者是go语言特有
+    * 值/指针接收者均可接收值/指针
