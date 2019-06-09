@@ -361,3 +361,6 @@ if contents, err := ioutil.ReadFile(filename); err != nil {
     * main包包含可执行函数
     * 为结构定义的方法必须放在同一个包内
     * 可以是不同的文件
+    * 扩充系统类型或别人的类型
+    * 定义别名
+    * 使用组合
